@@ -2,11 +2,22 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    //location
     'models/location',
     'views/locationView',
+
+    //current weather
+    'views/currentWeatherView',
+
+    //forecast
+    'views/forecastView',
+
+    //map
     'views/mapView',
+
+    //Nav-bar
     'views/navView'
-    ], function($,_, Backbone, Location, LocationView, MapView, NavView){
+    ], function($,_, Backbone, Location, LocationView,CurrentWeatherView, ForecastView, MapView, NavView){
 
         var initialize = function(){
             Backbone.history.start();
@@ -33,11 +44,13 @@ define([
             },
         
             viewCurrent: function(){
-                console.log("Current at ")
+                var view = new CurrentWeatherView({ el: "#main-panel"})
+                view.render();
             },
         
             viewforecast: function(){
-                console.log("Forecast at ")
+                var view = new ForecastView({ el: "#main-panel"})
+                view.render();
             },
         
             viewMap: function(){
