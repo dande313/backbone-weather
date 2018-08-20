@@ -10,13 +10,27 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/styles.css">
+        <style type="text/css">
+            #nav-bar ul li { 
+                cursor: pointer; 
+                color: blue; 
+                list-style: none;
+                }
+        </style>
 
         <script src="js/lib/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-        <script src="js/lib/jquery-min.js"></script>
-        <script src="js/lib/underscore-min.js"></script>
-        <script src="js/lib/backbone-min.js"></script>
-        <script src="js/main.js"></script>
+        <!--RequireJS -->
+        <script src="js/lib/require-min.js" data-main="js/main"></script>
+        <div id="nav-bar">
+            <ul>
+                <li id="nav-location" data-url="location">Location</li>
+                <li id="nav-current" data-url="current">Current</li>
+                <li id="nav-forecast" data-url="forecast">Forecast</li>
+                <li id="nav-map" data-url="map">Map</li>
+            </ul>
+        </div>
+        <div id="main-panel"></div>
     </body>
 </html>

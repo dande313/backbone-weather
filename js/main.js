@@ -6,17 +6,20 @@ requirejs.config({
     jquery: 'lib/jquery-min',
     underscore: 'lib/underscore-min',
     backbone: 'lib/backbone-min',
-    mustache: 'lib/mustache',
-    Initialize: 'app',
+    mustache: 'lib/mustache-min',
+    tpl: 'lib/tpl',
     Router: 'router',
+    app:'app',
     // Collections
 
     // Models
-    location: 'models/location'
+    location: 'models/location',
     // Views
+    LocationView: 'views/locationView',
+    MapView: 'views/mapView'
   }
 });
 
-require(['Initialize'], function (Initialize) {
-  Initialize.initialize();
-});
+define(['app'], function(App){
+  App.initialize();
+})
