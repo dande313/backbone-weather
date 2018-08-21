@@ -13,7 +13,7 @@ requirejs.config({
     // Collections
 
     // Models
-    location: 'models/location',
+    location: 'models/locationModel',
     // Views
     LocationView: 'views/locationView',
     MapView: 'views/mapView'

@@ -3,25 +3,35 @@ define([
     'underscore',
     'backbone',
     'mustache',
-    'tpl!views/templates/location_view.html'
+    'tpl!views/templates/location_view.html',
+    'models/locationModel'
     ],
     function(
-        $, _, Backbone, Mustache, locationViewTemplate
+        $, _, Backbone, Mustache, locationViewTemplate, Location
     ){
+        
+
 
         var LocationView = Backbone.View.extend({
 
             id: "locationViewContainer",
 
+            events: {
+                'click #update-button': 'updateLocation'
+            },
+
             initialize: function(options){
-                console.log(options);
+                console.log(options.model)
+            },
+
+            updateLocation: function(){
+                currentLocation = {}
             },
 
             render: function(){
                 var template = locationViewTemplate;
-                console.log(template)
-                this.$el.html(template);
-
+                this.$el.html(Mustache.to_html(template(), this.model.attributes));
+                this.$el.find('option[value='+this.model.attributes.state +']').attr('selected', true)
                 return this
             }
         })

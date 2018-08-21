@@ -14,13 +14,14 @@ define([
             id: "currentWeatherViewContainer",
 
             initialize: function(options){
-                console.log(options);
             },
 
             render: function(){
+                var weatherAttributes = this.model.attributes
+                var fakeAttributes = {temp: 20}
+                console.log(this.model.attributes)
                 var template = currentWeatherViewTemplate;
-                console.log(template)
-                this.$el.html(template);
+                this.$el.html(Mustache.to_html(template(), weatherAttributes));
 
                 return this
             }

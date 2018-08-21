@@ -1,8 +1,8 @@
 <h1>Location</h1>
 <div>
-    <input if="location-address" placeholder="Street Address">
+    <input if="location-address" placeholder="Street Address" value="{{streetAddress}}">
     <div>
-        <input id="location-city" placeholder="City">
+        <input id="location-city" placeholder="City" value="{{city}}">
         <select id="location-state">
             <option value="AL">AL</option>
             <option value="AK">AK</option>
@@ -26,7 +26,7 @@
             <option value="MA">MA</option>
             <option value="MD">MD</option>
             <option value="ME">ME</option>
-            <option value="MI" selected="selected">MI</option>
+            <option value="MI">MI</option>
             <option value="MN">MN</option>
             <option value="MO">MO</option>	
             <option value="MS">MS</option>
@@ -55,12 +55,12 @@
             <option value="WI">WI</option>	
             <option value="WV">WV</option>
             <option value="WY">WY</option>
-            <input id="location-zipCode" placeholder="Zip Code">
+            <input id="location-zipCode" placeholder="Zip Code" value="{{zipCode}}">
         </select>
     </div>
     <hr>
-    <input id="location-zipCode" placeholder="Latitude">
-    <input id="location-zipCode" placeholder="Longitude">
+    <input id="location-latitude" placeholder="Latitude" value="{{latitude}}" disabled>
+    <input id="location-longitude" placeholder="Longitude" value="{{longitude}}" disabled>
     <br>
     <button id="update-button">Update</button>
     <div>

@@ -19,7 +19,6 @@ define([
 
             render: function(){
                 var template = forecastViewTemplate;
-                console.log(template)
                 this.$el.html(template);
 
                 return this
