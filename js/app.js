@@ -12,13 +12,16 @@ define([
 
     //forecast
     'views/forecastView',
+    'views/forecastDayView',
+    'models/forecastDayModel',
+    'collections/forecastCollection',
 
     //map
     'views/mapView',
 
     //Nav-bar
     'views/navView'
-    ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, MapView, NavView){
+    ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapView, NavView){
         var currentLocation = new LocationModel({
             streetAddress:"123 Laurelwood Dr",
             city:"Hudsonville",
@@ -61,9 +64,10 @@ define([
             },
         
             viewforecast: function(){
-                var view = new ForecastView({ el: "#main-panel"})
-                hideLocation();
-                view.render();
+                var forecast = new ForecastCollection();
+                forecast.fetch().done(function(){
+                        console.log(forecast)
+                })
             },
         
             viewMap: function(){
