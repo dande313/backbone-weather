@@ -53,10 +53,11 @@ define([
         
             viewCurrent: function(){
                 var currentWeather = new CurrentWeatherModel({currentLocation});
-                currentWeather.fetch();
-                var view = new CurrentWeatherView({ el: "#main-panel", model: currentWeather})
-                hideLocation();
-                view.render();
+                currentWeather.fetch().done(function(){
+                    var view = new CurrentWeatherView({ el: "#main-panel", model: currentWeather})
+                    hideLocation();
+                    view.render();
+                });
             },
         
             viewforecast: function(){
