@@ -5,7 +5,10 @@ define([
 
         var currentWeatherModel = Backbone.Model.extend({
             initialize: function(options){
-                this.url = "http://api.openweathermap.org/data/2.5/weather?lat=" + options.currentLocation.attributes.latitude + "&lon=" +options.currentLocation.attributes.longitude + "&units=imperial&appid=e0e31fecb53d51f5aa959eee6bc014f1"
+                this.url = "http://api.openweathermap.org/data/2.5/weather?lat=" + 
+                options.currentLocation.attributes.latitude + 
+                "&lon=" +options.currentLocation.attributes.longitude + 
+                "&units=imperial&appid=e0e31fecb53d51f5aa959eee6bc014f1"
 
             },
 

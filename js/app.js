@@ -64,7 +64,7 @@ define([
             },
         
             viewforecast: function(){
-                var forecast = new ForecastCollection();
+                var forecast = new ForecastCollection({currentLocation});
                 forecast.fetch().done(function(){
                         var view = new ForecastView({ el: "#main-panel", collection: forecast})
                         hideLocation();

@@ -6,7 +6,14 @@ define([
 
 	var ForecastCollection = Backbone.Collection.extend({
         model: ForecastDay,
-        url: "http://api.openweathermap.org/data/2.5/forecast?lat=27&lon=-85&appid=e0e31fecb53d51f5aa959eee6bc014f1",
+        initialize: function(data){
+            var currentLocation = data.currentLocation;
+            var latitude = currentLocation.get("latitude");
+            var longitude = currentLocation.get("longitude");
+            this.url = "http://api.openweathermap.org/data/2.5/forecast?lat="+
+            latitude + "&lon=" + longitude +
+            "&units=imperial&appid=e0e31fecb53d51f5aa959eee6bc014f1";
+        },
 
         parse: function(data){
             var forecastArr = data.list
