@@ -14,7 +14,6 @@ define([
             id: "mapViewContainer",
 
             initialize: function(options){
-                console.log(options);
             },
 
             render: function(){

@@ -17,7 +17,6 @@ define([
             },
 
             render: function(){
-                console.log(this.model.attributes)
                 var weatherAttributes = this.model.attributes;
                 var template = currentWeatherViewTemplate;
                 this.$el.html(Mustache.to_html(template(), weatherAttributes));

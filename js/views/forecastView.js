@@ -3,23 +3,30 @@ define([
     'underscore',
     'backbone',
     'mustache',
+    'views/forecastView',
+    'views/forecastDayView',
     'tpl!views/templates/forecast_view.html'
     ],
     function(
-        $, _, Backbone, Mustache, forecastViewTemplate
+        $, _, Backbone, Mustache, ForecastView, ForecastDayView, ForecastViewTemplate
     ){
 
         var ForecastView = Backbone.View.extend({
 
-            id: "forecastViewContainer",
-
             initialize: function(options){
-                console.log(options);
             },
 
+
             render: function(){
-                var template = forecastViewTemplate;
-                this.$el.html(template);
+                var element = this.$el
+                var template = ForecastViewTemplate;
+                var html = Mustache.render(template());
+                this.collection.forEach(function(day){
+                    var dayView = new ForecastDayView({model: day})
+                    var dayViewRender = dayView.render();
+                    html = html + dayViewRender
+                })
+                element.html(html);
 
                 return this
             }

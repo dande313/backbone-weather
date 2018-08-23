@@ -14,7 +14,7 @@ define([
             return filteredForecastArr;
 
         }
-	});
+    });
 
 	return ForecastCollection;
 });

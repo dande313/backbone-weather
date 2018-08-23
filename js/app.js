@@ -66,7 +66,9 @@ define([
             viewforecast: function(){
                 var forecast = new ForecastCollection();
                 forecast.fetch().done(function(){
-                        console.log(forecast)
+                        var view = new ForecastView({ el: "#main-panel", collection: forecast})
+                        hideLocation();
+                        view.render();
                 })
             },
         
