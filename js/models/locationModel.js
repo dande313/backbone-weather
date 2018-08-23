@@ -1,6 +1,6 @@
 define([
     'underscore',
-    'backbone'], function(_, Backbone){
+    'backbone', 'backboneLocalstorage'], function(_, Backbone, LocalStorage){
 
         //attributes
         /* 
@@ -11,7 +11,11 @@ define([
         latitude
         longitude
         */
-        var Location = Backbone.Model.extend();
+        var Location = Backbone.Model.extend({
+
+
+
+        });
         
         return Location;
 });

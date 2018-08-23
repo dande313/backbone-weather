@@ -8,6 +8,8 @@ requirejs.config({
     backbone: 'lib/backbone-min',
     mustache: 'lib/mustache-min',
     tpl: 'lib/tpl',
+    backboneLocalstorage: '../node_modules/backbone.localstorage/build/backbone.localStorage',
+
     Router: 'router',
     app:'app',
     // Collections

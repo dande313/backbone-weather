@@ -24,7 +24,16 @@ define([
             },
 
             updateLocation: function(){
-                currentLocation = {}
+                var currentLocation = {
+                    id: 1,
+                    streetAddress: $("#location-address").val(),
+                    city: $("#location-city").val(),
+                    state: $("#location-state").val(),
+                    zipCode: $("#location-zipCode").val(),
+                    latitude: $("#location-latitude").val(),
+                    longitude: $("#location-longitude").val()
+                }
+                Location.save(currentLocation);
             },
 
             render: function(){

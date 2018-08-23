@@ -49,8 +49,7 @@ define([
             },
         
             viewLocation: function(){
-                var view = new LocationView({ el: "#location-panel", model: currentLocation})
-                displayLocation();
+                var view = new LocationView({ el: "#main-panel", model: currentLocation})
                 view.render();
             },
         
@@ -58,7 +57,6 @@ define([
                 var currentWeather = new CurrentWeatherModel({currentLocation});
                 currentWeather.fetch().done(function(){
                     var view = new CurrentWeatherView({ el: "#main-panel", model: currentWeather})
-                    hideLocation();
                     view.render();
                 });
             },
@@ -67,28 +65,16 @@ define([
                 var forecast = new ForecastCollection({currentLocation});
                 forecast.fetch().done(function(){
                         var view = new ForecastView({ el: "#main-panel", collection: forecast})
-                        hideLocation();
                         view.render();
                 })
             },
         
             viewMap: function(){
                 var view = new MapView({ el: "#main-panel"})
-                hideLocation();
                 view.render();
             }
 
         });
-
-        //functions to keep location across views
-        displayLocation= function(){
-            $("#location-panel").attr('style', 'display: block')
-            $("#main-panel").html("")
-        }
-
-        hideLocation= function(){
-            $("#location-panel").attr('style', 'display: none')
-        }
 
         var router = new AppRouter();
 
