@@ -23,7 +23,8 @@ define([
     'views/navView'
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapView, NavView){
         var currentLocation = new LocationModel();
-        console.log(navigator.geolocation.getCurrentPosition());
+        console.log(currentLocation)
+        console.log(navigator.geolocation);
 
         var initialize = function(){
             Backbone.history.start();
@@ -48,24 +49,41 @@ define([
             },
         
             viewCurrent: function(){
-                var currentWeather = new CurrentWeatherModel({currentLocation});
-                currentWeather.fetch().done(function(){
-                    var view = new CurrentWeatherView({ el: "#main-panel", model: currentWeather})
-                    view.render();
-                });
+                if (!currentLocation.get("latitude")){
+                    this.locationErrorHandler();
+                } else {
+                    var currentWeather = new CurrentWeatherModel({currentLocation});
+                    currentWeather.fetch().done(function(){
+                        var view = new CurrentWeatherView({ el: "#main-panel", model: currentWeather})
+                        view.render();
+                    });
+                }
             },
         
             viewforecast: function(){
-                var forecast = new ForecastCollection({currentLocation});
-                forecast.fetch().done(function(){
-                        var view = new ForecastView({ el: "#main-panel", collection: forecast})
-                        view.render();
-                })
+                if (!currentLocation.get("latitude")){
+                    this.locationErrorHandler();
+                } else {
+                    var forecast = new ForecastCollection({currentLocation});
+                    forecast.fetch().done(function(){
+                            var view = new ForecastView({ el: "#main-panel", collection: forecast})
+                            view.render();
+                    })
+                }
             },
         
             viewMap: function(){
-                var view = new MapView({ el: "#main-panel"})
-                view.render();
+                if (!currentLocation.get("latitude")){
+                    this.locationErrorHandler();
+                } else {
+                    var view = new MapView({ el: "#main-panel"})
+                    view.render();
+                }
+            },
+
+            locationErrorHandler: function(){
+                router.navigate("location", {trigger: true})
+                alert("Location Error");
             }
 
         });
