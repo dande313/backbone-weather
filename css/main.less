@@ -4,6 +4,10 @@ body {
 
 #app-body {
     background: #c8dbffb9;
+    height: 100%;
+    width: 100%;
+    margin-bottom:0;
+    position: absolute;
     #app-name {
         text-align: center;
         color: #222;
@@ -32,15 +36,28 @@ body {
 #main-panel {
     display: block;
     padding-top:40px;
+    max-width:1000px;
+    min-height: 550px;
+    margin: auto;
+    background-color: #eee;
+    border-radius: 25px;
 
     #location-panel {
         text-align: center;
         left: center;
         display: block;
+
         #location-form {
             text-align: left;
-            width:600px;
+            width:40%;
             padding-left: 100px;
+            float: left;
+            margin: auto;
+        }
+        #location-map {
+            img {
+                width: 400px;
+            }
         }
     }
 }
