@@ -23,13 +23,12 @@ define([
     'views/navView'
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapView, NavView){
         var currentLocation = new LocationModel();
-        console.log(currentLocation)
-        console.log(navigator.geolocation);
-
         var initialize = function(){
             Backbone.history.start();
             var navView = new NavView({el: "#nav-bar", router:router})
             navView.render();
+            $("#nav-bar ul li").removeClass();
+            router.disableAllButLocation();
         }
 
 
@@ -49,11 +48,12 @@ define([
             },
         
             viewCurrent: function(){
-                if (!currentLocation.get("latitude")){
-                    this.locationErrorHandler();
-                } else {
+                if (this.coordinateTest()){
+                    let router = this;
                     var currentWeather = new CurrentWeatherModel({currentLocation});
                     currentWeather.fetch().done(function(){
+                        router.enableAllLinks();
+                        $("#nav-current").addClass("active")
                         var view = new CurrentWeatherView({ el: "#main-panel", model: currentWeather})
                         view.render();
                     });
@@ -61,29 +61,66 @@ define([
             },
         
             viewforecast: function(){
-                if (!currentLocation.get("latitude")){
-                    this.locationErrorHandler();
-                } else {
+                if (this.coordinateTest()){
+                    let router = this;
                     var forecast = new ForecastCollection({currentLocation});
                     forecast.fetch().done(function(){
-                            var view = new ForecastView({ el: "#main-panel", collection: forecast})
-                            view.render();
+                        router.enableAllLinks();
+                        $("#nav-forecast").addClass("active")
+                        var view = new ForecastView({ el: "#main-panel", collection: forecast})
+                        view.render();
                     })
                 }
             },
         
             viewMap: function(){
-                if (!currentLocation.get("latitude")){
-                    this.locationErrorHandler();
-                } else {
+                if (this.coordinateTest()){
+                    this.enableAllLinks();
+                    $("#nav-map").addClass("active")
                     var view = new MapView({ el: "#main-panel"})
                     view.render();
                 }
             },
 
+            //coordinate check functions
+            coordinateTest: function (){
+                let latitude = parseFloat(currentLocation.get("latitude"));
+                let longitude = parseFloat(currentLocation.get("longitude"));
+                console.log(latitude);
+
+                if (
+                    //What makes lat/lon fail?
+                    isNaN(latitude)|| 
+                    latitude > 90 || 
+                    latitude < -90 || 
+                    isNaN(longitude)|| 
+                    longitude > 180|| 
+                    longitude < -180 
+                ){
+                    this.locationErrorHandler();
+                    return false
+                } else {
+                    this.enableAllLinks();
+                    return true
+                }
+            },
+
             locationErrorHandler: function(){
+                this.disableAllButLocation();
                 router.navigate("location", {trigger: true})
                 alert("Location Error");
+            },
+
+            //jQuery functions
+            disableAllButLocation: function(){
+                $("#nav-current").addClass("disabled")
+                $("#nav-forecast").addClass("disabled")
+                $("#nav-map").addClass("disabled")
+                $("#nav-location").addClass("active") 
+            },
+
+            enableAllLinks: function(){
+                $("#nav-bar ul li").removeClass();
             }
 
         });

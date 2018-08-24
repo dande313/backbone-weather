@@ -28,8 +28,18 @@ body {
             padding: 10px 40px; 
             text-decoration: none;
             cursor: pointer;
+            &:hover{
+                color:green;
+            }
+            &.active {
+                color:#111;
+                cursor: default;
+            }
+            &.disabled {
+                color: #888;
+                cursor: default;
+            } 
         }
-
     }
 }
 

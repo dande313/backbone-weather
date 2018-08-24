@@ -24,7 +24,7 @@ define([
             },
 
             updateLocation: function(){
-                var currentLocation = {
+                let currentLocation = {
                     id: 1,
                     streetAddress: $("#location-address").val(),
                     city: $("#location-city").val(),
@@ -33,8 +33,16 @@ define([
                     latitude: $("#location-latitude").val(),
                     longitude: $("#location-longitude").val()
                 }
-                this.model.set(currentLocation);
-                console.log(this.model);
+                let latitude = parseFloat(currentLocation.latitude);
+                let longitude = parseFloat(currentLocation.longitude);
+                if (latitude < 90 && latitude > -90 && longitude < 180 && longitude > -180){
+                    $("#nav-bar ul li").removeClass();
+                    $("#nav-location").addClass("active")
+                    this.model.set(currentLocation);
+                    console.log(this.model);
+                } else {
+                    alert("invalid coordinates")
+                }
             },
 
             render: function(){
