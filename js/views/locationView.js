@@ -17,7 +17,8 @@ define([
             id: "locationViewContainer",
 
             events: {
-                'click #update-button': 'updateLocation'
+                'click #update-button': 'updateLocation',
+                'click #geocode-fetch-button': 'setMyLocation'
             },
 
             initialize: function(options){
@@ -43,6 +44,20 @@ define([
                 } else {
                     alert("invalid coordinates")
                 }
+            },
+            setMyLocation: function(){
+                let currentLocation = this.model;
+                let locationView = this
+                navigator.geolocation.getCurrentPosition(function(position){
+                    currentLocation.set({
+                        "latitude": position.coords.latitude,
+                        "longitude": position.coords.longitude
+                    });
+                    console.log(position)
+                    locationView.render();         
+                })
+                $("#nav-bar ul li").removeClass();
+                $("#nav-location").addClass("active")
             },
 
             render: function(){

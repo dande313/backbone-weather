@@ -22,7 +22,12 @@ define([
     //Nav-bar
     'views/navView'
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapView, NavView){
-        var currentLocation = new LocationModel();
+
+        var currentLocation = new LocationModel({
+            latitude: 25,
+            longitude: 34
+        });
+
         var initialize = function(){
             Backbone.history.start();
             var navView = new NavView({el: "#nav-bar", router:router})
