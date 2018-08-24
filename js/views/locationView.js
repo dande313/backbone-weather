@@ -33,7 +33,8 @@ define([
                     latitude: $("#location-latitude").val(),
                     longitude: $("#location-longitude").val()
                 }
-                Location.save(currentLocation);
+                this.model.set(currentLocation);
+                console.log(this.model);
             },
 
             render: function(){

@@ -22,14 +22,8 @@ define([
     //Nav-bar
     'views/navView'
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapView, NavView){
-        var currentLocation = new LocationModel({
-            streetAddress:"123 Laurelwood Dr",
-            city:"Hudsonville",
-            state:"MI",
-            zipCode: "49426",
-            latitude: "42.8614811",
-            longitude: "-85.8558409"
-        });
+        var currentLocation = new LocationModel();
+        console.log(navigator.geolocation.getCurrentPosition());
 
         var initialize = function(){
             Backbone.history.start();
