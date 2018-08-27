@@ -60,12 +60,21 @@
             </select>
         </div>
         <hr>
-        <input id="location-latitude" placeholder="Latitude" value="{{latitude}}">
-        <input id="location-longitude" placeholder="Longitude" value="{{longitude}}">
+        <table>
+            <tr>
+                <td>Latitude</td>
+                <td><input id="location-latitude" placeholder="Latitude" value="{{latitude}}" disabled></td>
+            </tr>
+            <tr>
+                <td>Longitude</td>
+                <td><input id="location-longitude" placeholder="Longitude" value="{{longitude}}" disabled></td>
+            </tr>
+        </table>
         <br>
-        <button id="update-button">Update</button><button id="geocode-fetch-button">My Location</button>
+        <button id="update-button">Set Coordinates</button><button id="geocode-fetch-button">My Location</button>
     </div>
+    <div class="loader"></div>
     <div id="location-map">
-        <img src="http://mediad.publicbroadcasting.net/p/michigan/files/styles/medium/public/201512/modern_michigan_map_v2.jpg">
+        <img src="{{mapUrl}}">
     </div>
 </div>
