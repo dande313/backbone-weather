@@ -24,6 +24,8 @@ define([
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapView, NavView){
 
         var currentLocation = new LocationModel({
+            "latitude": 23,
+            "longitude":42
         });
 
         var initialize = function(){

@@ -18,15 +18,12 @@ define([
 
 
             render: function(){
-                var element = this.$el
-                var template = ForecastViewTemplate;
-                var html = Mustache.render(template());
+                this.$el.html(Mustache.render(ForecastViewTemplate()))
                 this.collection.forEach(function(day){
                     var dayView = new ForecastDayView({model: day})
                     var dayViewRender = dayView.render();
-                    html = html + dayViewRender
+                    $("#weekly-forecast").append(dayViewRender);
                 })
-                element.html(html);
 
                 return this
             }

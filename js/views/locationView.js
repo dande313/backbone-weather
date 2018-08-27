@@ -83,6 +83,7 @@ define([
                         positionLatitude + "," +
                         positionLongitude + "&key=AIzaSyCCFahGgq675eIzapBVXCsexSorrgFa18k",
                         success:function(result){
+                            console.log(result)
                             let address = result.results[0].formatted_address.split(",")
                             let stateZip = address[2].split(" ")
                             let coordinates = result.results[0].geometry.location
