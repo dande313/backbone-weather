@@ -22,6 +22,9 @@ define([
             },
 
             initialize: function(options){
+                if(!this.model.get("latitude") || !this.model.get("longitude")){
+                    this.setMyLocation();
+                }
             },
 
             updateLocation: function(){
@@ -37,8 +40,6 @@ define([
                 let latitude = parseFloat(currentLocation.latitude);
                 let longitude = parseFloat(currentLocation.longitude);
                 if (latitude < 90 && latitude > -90 && longitude < 180 && longitude > -180){
-                    $("#nav-bar ul li").removeClass();
-                    $("#nav-location").addClass("active")
                     this.model.set(currentLocation);
                     console.log(this.model);
                 } else {
@@ -49,12 +50,39 @@ define([
                 let currentLocation = this.model;
                 let locationView = this
                 navigator.geolocation.getCurrentPosition(function(position){
-                    currentLocation.set({
-                        "latitude": position.coords.latitude,
-                        "longitude": position.coords.longitude
-                    });
-                    console.log(position)
-                    locationView.render();         
+
+                    let positionLatitude = position.coords.latitude;
+                    let positionLongitude = position.coords.longitude;
+                    var positionAddress;
+                    var positionCity;
+                    var positionState;
+                    var positionZip;
+
+                    $.ajax({
+                        url:"https://maps.googleapis.com/maps/api/geocode/json?latlng=" + 
+                        positionLatitude + "," +
+                        positionLongitude + "&key=AIzaSyCCFahGgq675eIzapBVXCsexSorrgFa18k",
+                        success:function(result){
+                            let address = result.results[0].formatted_address.split(",")
+                            let stateZip = address[2].split(" ")
+                            positionAddress = address[0];
+                            //because it sticks a space in front of the city
+                            positionCity = address[1].substring(1);
+                            positionState = stateZip[1];
+                            positionZip = stateZip[2];
+                            currentLocation.set({
+                                "streetAddress": positionAddress,
+                                "city": positionCity,
+                                "state": positionState,
+                                "zipCode": positionZip,
+                                "latitude": positionLatitude,
+                                "longitude": positionLongitude
+                            });
+                            console.log(stateZip)
+                            console.log(currentLocation)
+                            locationView.render();  
+                        }
+                    })       
                 })
                 $("#nav-bar ul li").removeClass();
                 $("#nav-location").addClass("active")

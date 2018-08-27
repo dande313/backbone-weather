@@ -24,8 +24,6 @@ define([
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapView, NavView){
 
         var currentLocation = new LocationModel({
-            latitude: 25,
-            longitude: 34
         });
 
         var initialize = function(){
@@ -48,6 +46,8 @@ define([
             },
         
             viewLocation: function(){
+                router.enableAllLinks();
+                $("#nav-location").addClass("active")
                 var view = new LocationView({ el: "#main-panel", model: currentLocation})
                 view.render();
             },
@@ -118,9 +118,6 @@ define([
 
             //jQuery functions
             disableAllButLocation: function(){
-                $("#nav-current").addClass("disabled")
-                $("#nav-forecast").addClass("disabled")
-                $("#nav-map").addClass("disabled")
                 $("#nav-location").addClass("active") 
             },
 

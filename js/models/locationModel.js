@@ -13,7 +13,9 @@ define([
         */
         var Location = Backbone.Model.extend({
 
-
+            initialize: function(options){
+                console.log(options)
+            }
 
         });
         
