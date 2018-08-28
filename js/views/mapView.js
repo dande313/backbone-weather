@@ -14,6 +14,7 @@ define([
             id: "mapViewContainer",
             events: {
                 'change #map-zoom': 'changeZoom',
+                'change #map-layer': 'changeLayer',
             },
 
             initialize: function(options){
@@ -21,11 +22,24 @@ define([
             },
 
             changeZoom: function(e){
-                console.log("yay!");
-                console.log(e)
                 this.model.set("zoom", e.target.value)
-                this.model.set("mapUrl", "https://maps.googleapis.com/maps/api/staticmap?center="+ this.model.currentLocation.latitude +","+ this.model.currentLocation.longitude +"&zoom="+ this.model.attributes.zoom+"&markers=color:blue%7C"+ this.model.currentLocation.latitude +","+ this.model.currentLocation.longitude +"&size=800x420&maptype=satellite&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE")
+                this.setMap();
+
                 this.render();
+            },
+
+            changeLayer: function(e){
+                this.model.set("layer", e.target.value)
+                this.setMap();
+
+                this.render();
+            },
+
+            setMap: function(){
+                //map base
+                this.model.set("mapUrl", "https://maps.googleapis.com/maps/api/staticmap?center="+ this.model.currentLocation.latitude +","+ this.model.currentLocation.longitude +"&zoom="+ this.model.attributes.zoom+"&markers=color:blue%7C"+ this.model.currentLocation.latitude +","+ this.model.currentLocation.longitude +"&size=640x420&maptype=satellite&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE")
+                //map overlay
+                this.model.set("layerUrl", "https://maps.aerisapi.com/dFkLZrFU77uiTtnLAkl3f_131s9Xmu7KIr7L3xve0zEk0wnVJSn4cgwBYkBZUp/"+this.model.attributes.layer+"/640x420/"+ this.model.currentLocation.latitude +","+ this.model.currentLocation.longitude +","+ this.model.attributes.zoom+"/current.png")
             },
 
             render: function(){
@@ -33,7 +47,7 @@ define([
                 var template = mapViewTemplate;
                 this.$el.html(Mustache.to_html(template(), mapAttributes));
                 this.$el.find('#map-zoom option[value='+this.model.attributes.zoom +']').attr('selected', true)
-
+                this.$el.find('#map-layer option[value='+this.model.attributes.layer +']').attr('selected', true)
                 return this
             }
         })

@@ -1,22 +1,21 @@
 <div id="weather-map-container">   
     <div id="option-selectors">
         <select id="map-layer">
-            <option value="clouds">Clouds</option>
-            <option value="precipitation">Precipitation</option>
-            <option value="pressure">Pressure</option>
-            <option value="temperature">Temperature</option>
-            <option value="windSpeed">Wind Speed</option>
+            <option value="none">None</option>
+            <option value="satellite-visible-transparent">Clouds</option>
+            <option value="temperatures">Temperature</option>
         </select>
         <select id="map-zoom">
-            <option value="1">1x</option>
-            <option value="2">2x</option>
-            <option value="4">4x</option>
-            <option value="8">8x</option>
-            <option value="16">16</option>
+            <option value="5">1x</option>
+            <option value="6">2x</option>
+            <option value="7">3x</option>
+            <option value="8">4x</option>
+            <option value="12">6x</option>
+            <option value="14">8x</option>
         </select>
     </div>
-
     <div id="weather-map">
-        <img src="{{mapUrl}}">
+        <img id="map-layover" src="{{layerUrl}}" style="opacity: 0.5; z-index:1">
+        <img id="map-image" src="{{mapUrl}}">
     </div>
 </div>
