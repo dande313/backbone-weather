@@ -21,6 +21,7 @@ body {
     color:#333;
     font-size: 18px;
     margin: auto;
+    width: 900px;
     ul {
         list-style: none; 
     	margin: 0; 
@@ -34,8 +35,7 @@ body {
             text-decoration: none;
             cursor: pointer;
             border:1px solid gray;
-            border-bottom: none;
-            background: #eee;
+            background: #ccc;
             width: 80px;
             text-align: center;
             &:hover{
@@ -43,8 +43,10 @@ body {
             }
             &.active {
                 color:#111;
+                padding-bottom: 11px;
                 cursor: default;
-                z-index:1;
+                background: #eee;
+                border-bottom: none;
             }
         }
     }
@@ -56,7 +58,7 @@ body {
     max-width:1000px;
     height: 550px;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 33px;
     background-color: #eee;
     border-radius: 25px;
 
