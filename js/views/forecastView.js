@@ -22,7 +22,7 @@ define([
                 this.collection.forEach(function(day){
                     var dayView = new ForecastDayView({model: day})
                     var dayViewRender = dayView.render();
-                    $("#weekly-forecast").append(dayViewRender);
+                    $("#forecast-week-row").append(dayViewRender);
                 })
 
                 return this

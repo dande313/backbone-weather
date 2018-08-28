@@ -12,7 +12,8 @@ body {
         text-align: center;
         color: #222;
         font-size: 40px;
-        padding-top: 20px;
+        padding-top: 30px;
+        padding-bottom: 40px;
     }
 }
 
@@ -38,6 +39,19 @@ body {
             background: #ccc;
             width: 80px;
             text-align: center;
+            position: relative;
+            &:nth-child(1){
+                z-index: 4
+            }
+            &:nth-child(2){
+                z-index: 3;
+            }
+            &:nth-child(3){
+                z-index: 2;
+            }
+            &:nth-child(4){
+                z-index: 1;
+            }
             &:hover{
                 color:green;
             }
@@ -47,6 +61,8 @@ body {
                 cursor: default;
                 background: #eee;
                 border-bottom: none;
+                position: relative;
+                z-index: 4;
             }
         }
     }
@@ -121,7 +137,10 @@ body {
         display: block;
         margin: auto;
         box-sizing: border-box;
-        width: 830px;
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
         .day-forecast{
             width: 120px;
             height: 180px;
@@ -130,7 +149,9 @@ body {
             border-radius: 10px;
             background: white;
             float: left;
+            padding-top: 20px;
             margin: 20px;
+            margin-top: 60px;
 
         }
     }
