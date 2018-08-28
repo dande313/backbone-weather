@@ -1,15 +1,22 @@
-<h1>Map</h1>
-<div id="map-filter-selector">
-    <h2>Map layers</h2>
-    <ul>
-        <li id="map-clouds">Clouds</li>
-        <li id="map-precipitation">Precipitation</li>
-        <li id="map-pressure">Pressure</li>
-        <li id="map-wind">Wind Speed</li>
-        <li id="map-pressure">Temperature</li>
-    </ul>
-</div>
+<div id="weather-map-container">   
+    <div id="option-selectors">
+        <select id="map-layer">
+            <option value="clouds">Clouds</option>
+            <option value="precipitation">Precipitation</option>
+            <option value="pressure">Pressure</option>
+            <option value="temperature">Temperature</option>
+            <option value="windSpeed">Wind Speed</option>
+        </select>
+        <select id="map-zoom">
+            <option value="1">1x</option>
+            <option value="2">2x</option>
+            <option value="4">4x</option>
+            <option value="8">8x</option>
+            <option value="16">16</option>
+        </select>
+    </div>
 
-<div id="weather-map">
-     <img src="http://mediad.publicbroadcasting.net/p/michigan/files/styles/medium/public/201512/modern_michigan_map_v2.jpg">
+    <div id="weather-map">
+        <img src="{{mapUrl}}">
+    </div>
 </div>

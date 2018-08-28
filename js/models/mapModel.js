@@ -4,20 +4,19 @@ define([
     'backbone'], function($,_, Backbone){
 
         var MapModel = Backbone.Model.extend({
-            default: {
-                layer: "temperature"
+            //Attributes:
+            //mapUrl
+            //layer
+            //layerUrl
+
+            defaults: {
+                layer: "temperature",
+                zoom: 4
             },
             initialize: function(options){
-                this.url = "https://tile.openweathermap.org/map/clouds/14/35/-83.png?appid=e0e31fecb53d51f5aa959eee6bc014f1" + 
-                options.currentLocation.attributes.latitude + 
-                "&lon=" +options.currentLocation.attributes.longitude + 
-                "&units=imperial&appid=e0e31fecb53d51f5aa959eee6bc014f1"
-
-            },
-
-            parse: function(data){
-
-                return data
+                console.log(this);
+                this.currentLocation = options.currentLocation.attributes;
+                this.attributes.mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center="+ this.currentLocation.latitude +","+ this.currentLocation.longitude +"&zoom="+ this.attributes.zoom+"&markers=color:blue%7C"+ this.currentLocation.latitude +","+ this.currentLocation.longitude +"&size=800x420&maptype=satellite&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
             }
 
         }); 

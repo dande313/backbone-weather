@@ -17,11 +17,12 @@ define([
     'collections/forecastCollection',
 
     //map
+    'models/mapModel',
     'views/mapView',
 
     //Nav-bar
     'views/navView'
-    ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapView, NavView){
+    ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapModel, MapView, NavView){
 
         var currentLocation = new LocationModel({
             latitude: 43.0135927,
@@ -82,9 +83,11 @@ define([
         
             viewMap: function(){
                 if (this.coordinateTest()){
+                    let router = this;
+                    var currentWeatherMap = new MapModel({currentLocation})
                     this.enableAllLinks();
                     $("#nav-map").addClass("active")
-                    var view = new MapView({ el: "#main-panel"})
+                    var view = new MapView({ el: "#main-panel", model: currentWeatherMap})
                     view.render();
                 }
             },
@@ -93,7 +96,6 @@ define([
             coordinateTest: function (){
                 let latitude = parseFloat(currentLocation.get("latitude"));
                 let longitude = parseFloat(currentLocation.get("longitude"));
-                console.log(latitude);
 
                 if (
                     //What makes lat/lon fail?

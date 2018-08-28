@@ -49,7 +49,7 @@ define([
                         let coordinates = result.results[0].geometry.location
                         currentLocation.latitude = coordinates.lat
                         currentLocation.longitude = coordinates.lng
-                        currentLocation.mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center="+ currentLocation.latitude +","+ currentLocation.longitude +"&zoom=14&size=400x400&markers=color:blue%7C"+ currentLocation.latitude +","+ currentLocation.longitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
+                        currentLocation.mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center="+ currentLocation.latitude +","+ currentLocation.longitude +"&zoom=14&size=380x380&markers=color:blue%7C"+ currentLocation.latitude +","+ currentLocation.longitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
                         console.log(currentLocation)
                         let latitude = parseFloat(currentLocation.latitude);
                         let longitude = parseFloat(currentLocation.longitude);
@@ -105,7 +105,7 @@ define([
                                 "zipCode": positionZip,
                                 "latitude": positionLatitude,
                                 "longitude": positionLongitude,
-                                "mapUrl": "https://maps.googleapis.com/maps/api/staticmap?center="+ positionLatitude +","+ positionLongitude +"&zoom=14&size=400x400&markers=color:blue%7C"+ positionLatitude +","+ positionLongitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
+                                "mapUrl": "https://maps.googleapis.com/maps/api/staticmap?center="+ positionLatitude +","+ positionLongitude +"&zoom=14&size=380x380&markers=color:blue%7C"+ positionLatitude +","+ positionLongitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
                             });
                             locationView.render();  
                         }

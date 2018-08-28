@@ -102,8 +102,9 @@ body {
         }
         #location-map {
             img {
-                width: 400px;
-                height: 360px;
+                position: absolute;
+                clip: rect(0px,360px,360px,0px);
+                margin-left: -170px;
             }
         }
     }
@@ -143,16 +144,40 @@ body {
         }
         .day-forecast{
             width: 120px;
-            height: 180px;
+            height: 160px;
             text-align: center;
             border: 2px solid gray;
             border-radius: 10px;
             background: white;
             float: left;
-            padding-top: 20px;
+            padding-top: 30px;
             margin: 20px;
             margin-top: 60px;
 
+        }
+    }
+
+    #weather-map-container {
+        margin: auto;
+        width: 900px;
+        text-align: center;
+        margin-top:35px;
+        #option-selectors {
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            text-align:left;
+            margin-left: 130px;
+            margin-right: 130px;
+            background: rgb(119, 146, 184);
+        }
+        #weather-map{
+            position: absolute;
+            margin-left:130px;
+            img{
+                position: absolute;
+                clip: rect(0px,800px,400px,0px);
+            }
         }
     }
 }
