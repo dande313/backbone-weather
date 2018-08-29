@@ -25,14 +25,14 @@ define([
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapModel, MapView, NavView){
 
         var currentLocation = new LocationModel({
+            latitude: 27,
+            longitude:-33
         });
 
         var initialize = function(){
             Backbone.history.start();
             var navView = new NavView({el: "#nav-bar", router:router})
             navView.render();
-            $("#nav-bar ul li").removeClass();
-            router.disableAllButLocation();
         }
 
 
