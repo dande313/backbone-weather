@@ -2,8 +2,10 @@
     <div id="option-selectors">
         <select id="map-layer">
             <option value="none">None</option>
-            <option value="satellite-visible-transparent">Clouds</option>
+            <option value="satellite-visible">Clouds</option>
+            <option value="radar">Precipitation</option>
             <option value="temperatures">Temperature</option>
+            <option value="fwinds">Wind Speed</option>
         </select>
         <select id="map-zoom">
             <option value="5">1x</option>
@@ -13,6 +15,9 @@
             <option value="12">6x</option>
             <option value="14">8x</option>
         </select>
+        <span id="map-legend">
+            <img id="map-key" src="../../../img/legends/legend-{{layer}}.svg" onerror="this.style.display='none'">
+        </span>
     </div>
     <div id="weather-map">
         <img id="map-layover" src="{{layerUrl}}" style="opacity: 0.5; z-index:1">

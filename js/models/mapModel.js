@@ -10,8 +10,8 @@ define([
             //layerUrl
 
             defaults: {
-                layer: "satellite-visible-transparent",
-                zoom: 5
+                layer: "satellite-visible",
+                zoom: 6
             },
             initialize: function(options){
                 console.log(this);
