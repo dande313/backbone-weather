@@ -25,8 +25,6 @@ define([
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapModel, MapView, NavView){
 
         var currentLocation = new LocationModel({
-            latitude: 43.0135927,
-            longitude: -85.6811906
         });
 
         var initialize = function(){
@@ -103,10 +101,9 @@ define([
                     longitude < -180 
                 ){
                     this.locationErrorHandler();
-                    return false
+                    return false;
                 } else {
-                    this.enableAllLinks();
-                    return true
+                    return true;
                 }
             },
 

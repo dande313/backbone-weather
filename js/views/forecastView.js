@@ -14,6 +14,7 @@ define([
         var ForecastView = Backbone.View.extend({
 
             initialize: function(options){
+                console.log(options)
             },
 
 

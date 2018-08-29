@@ -14,6 +14,7 @@ define([
             id: "currentWeatherViewContainer",
 
             initialize: function(options){
+                this.model.on("change", this.render, this)
             },
 
             render: function(){
