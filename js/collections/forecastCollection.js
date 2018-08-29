@@ -16,10 +16,46 @@ define([
         },
 
         parse: function(data){
-            var forecastArr = data.list
-            var filteredForecastArr = forecastArr.filter(forecastDay => forecastDay.dt_txt.substr(11,18) === "12:00:00")
-            return filteredForecastArr;
+            var forecastArr = data.list;
+            var dayArrays = [] 
+            var dayArraySize = 8;
 
+            while (forecastArr.length > 0) {
+                dayArrays.push(forecastArr.splice(0, dayArraySize));
+            }
+
+            findMinTemp = function(dayArr){
+                let minTemp;
+                for (i = 0; i < dayArr.length; i++){
+                    if (i === 0 || dayArr[i].main.temp_min < minTemp){
+                        minTemp = dayArr[i].main.temp_min;
+                    } 
+                }
+                return minTemp;                
+            }
+
+            findMaxTemp = function(dayArr){
+                let maxTemp;
+                for (i = 0; i < dayArr.length; i++){
+                    if (i === 0 || dayArr[i].main.temp_max < maxTemp){
+                        maxTemp = dayArr[i].main.temp_max;
+                    } 
+                }
+                return maxTemp;                
+            }
+
+            condenseDayArr = function(dayArr){
+                let minTemp = findMinTemp(dayArr)
+                let maxTemp = findMaxTemp(dayArr)
+                dayData = dayArr.filter(x => x.dt_txt.substr(11,18) === "12:00:00")
+                dayData[0].maxTemp = maxTemp;
+                dayData[0].minTemp = minTemp;
+                return dayData[0];
+            }
+
+            //plug everything into new model array
+            let condensedDayArray = dayArrays.map(x => condenseDayArr(x))
+            return condensedDayArray;
         }
     });
 

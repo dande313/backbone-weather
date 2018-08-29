@@ -51,13 +51,11 @@ define([
                         currentLocation.latitude = coordinates.lat
                         currentLocation.longitude = coordinates.lng
                         currentLocation.mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center="+ currentLocation.latitude +","+ currentLocation.longitude +"&zoom=14&size=380x380&markers=color:blue%7C"+ currentLocation.latitude +","+ currentLocation.longitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
-                        console.log(currentLocation)
                         let latitude = parseFloat(currentLocation.latitude);
                         let longitude = parseFloat(currentLocation.longitude);
                         if (latitude < 90 && latitude > -90 && longitude < 180 && longitude > -180){
                             oldLocation.set(currentLocation);
                             locationView.render();  
-                            console.log(oldLocation);
                         } else {
                             alert("bad address")
                         }
