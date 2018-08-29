@@ -24,7 +24,7 @@ define([
                     var dayViewRender = dayView.render();
                     $("#forecast-week-row").append(dayViewRender);
                 })
-
+                $("#nav-forecast").addClass("active")
                 return this
             }
         })

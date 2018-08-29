@@ -50,7 +50,6 @@ define([
         
             viewLocation: function(){
                 router.enableAllLinks();
-                $("#nav-location").addClass("active")
                 var view = new LocationView({ el: "#main-panel", model: currentLocation})
                 view.render();
             },
@@ -61,7 +60,6 @@ define([
                     var currentWeather = new CurrentWeatherModel({currentLocation});
                     currentWeather.fetch().done(function(){
                         router.enableAllLinks();
-                        $("#nav-current").addClass("active")
                         var view = new CurrentWeatherView({ el: "#main-panel", model: currentWeather})
                         view.render();
                     });
@@ -74,7 +72,6 @@ define([
                     var forecast = new ForecastCollection({currentLocation});
                     forecast.fetch().done(function(){
                         router.enableAllLinks();
-                        $("#nav-forecast").addClass("active")
                         var view = new ForecastView({ el: "#main-panel", collection: forecast})
                         view.render();
                     })
@@ -86,7 +83,6 @@ define([
                     let router = this;
                     var currentWeatherMap = new MapModel({currentLocation})
                     this.enableAllLinks();
-                    $("#nav-map").addClass("active")
                     var view = new MapView({ el: "#main-panel", model: currentWeatherMap})
                     view.render();
                 }

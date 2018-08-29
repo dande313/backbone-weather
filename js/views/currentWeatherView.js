@@ -20,7 +20,7 @@ define([
                 var weatherAttributes = this.model.attributes;
                 var template = currentWeatherViewTemplate;
                 this.$el.html(Mustache.to_html(template(), weatherAttributes));
-
+                $("#nav-current").addClass("active")
                 return this
             }
         })

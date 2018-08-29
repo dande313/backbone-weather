@@ -48,6 +48,7 @@ define([
                 this.$el.html(Mustache.to_html(template(), mapAttributes));
                 this.$el.find('#map-zoom option[value='+this.model.attributes.zoom +']').attr('selected', true)
                 this.$el.find('#map-layer option[value='+this.model.attributes.layer +']').attr('selected', true)
+                $("#nav-map").addClass("active")
                 return this
             }
         })

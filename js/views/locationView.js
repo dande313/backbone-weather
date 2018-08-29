@@ -119,6 +119,7 @@ define([
                 var template = locationViewTemplate;
                 this.$el.html(Mustache.to_html(template(), this.model.attributes));
                 this.$el.find('option[value='+this.model.attributes.state +']').attr('selected', true)
+                $("#nav-location").addClass("active")
                 return this
             }
         })
