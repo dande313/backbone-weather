@@ -12,6 +12,7 @@ define([
 
             },
 
+            //To uppercase weather description
             titleCase: function (str){
                 str = str.toLowerCase().split(' ');
                 for (var i = 0; i < str.length; i++) {
@@ -19,6 +20,7 @@ define([
                 }
                 return str.join(' ');
             },
+
             parse: function(data){
                 var weatherData = {
                     temp: data.main.temp,

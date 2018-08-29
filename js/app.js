@@ -25,8 +25,6 @@ define([
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapModel, MapView, NavView){
 
         var currentLocation = new LocationModel({
-            latitude: 27,
-            longitude:-33
         });
 
         var initialize = function(){
@@ -110,7 +108,6 @@ define([
             locationErrorHandler: function(){
                 this.disableAllButLocation();
                 router.navigate("location", {trigger: true})
-                alert("Location Error");
             },
 
             //jQuery functions
