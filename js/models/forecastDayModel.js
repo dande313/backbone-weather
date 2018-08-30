@@ -15,11 +15,39 @@ define([
 		},
 
 		parse: function(data){
-			console.log(data)
+			var date = data.dt_txt.substr(5,5) + "-" + data.dt_txt.substr(0,4)
+			var dayOfTheWeek = function(){
+				let jsDate = new Date(date)
+				var weekDay;
+				switch (jsDate.getDay()){
+					case 0:
+						weekDay = "Sunday";
+						break;
+					case 1:
+						weekDay = "Monday";
+						break;
+					case 2:
+						weekDay = "Tuesday";
+						break;
+					case 3:
+						weekDay = "Wednesday";
+						break;
+					case 4:
+						weekDay = "Thursday";
+						break;
+					case 5:
+						weekDay = "Friday";
+						break;
+					case 6:
+						weekDay = "Saturday";
+				}
+				
+				return weekDay
+			}
 			var parsedData = {
 				//format date
-				date: data.dt_txt.substr(5,5) + "-" + data.dt_txt.substr(0,4),
-
+				date: date,
+				dayOfTheWeek: dayOfTheWeek(),
 				tempMin: data.minTemp,
 				tempMax: data.maxTemp,
 				weatherType: this.titleCase(data.weather[0].description),
