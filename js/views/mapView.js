@@ -35,10 +35,16 @@ define([
             },
 
             setMap: function(){
+                var model = this.model
+
                 //map base
-                this.model.set("mapUrl", "https://maps.googleapis.com/maps/api/staticmap?center="+ this.model.currentLocation.latitude +","+ this.model.currentLocation.longitude +"&zoom="+ this.model.attributes.zoom+"&markers=color:blue%7C"+ this.model.currentLocation.latitude +","+ this.model.currentLocation.longitude +"&size=640x420&maptype=satellite&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE")
+                model.set("mapUrl", "https://maps.googleapis.com/maps/api/staticmap?center="+ model.currentLocation.latitude +","+ model.currentLocation.longitude +"&zoom="+ model.attributes.zoom+"&markers=color:blue%7C"+ model.currentLocation.latitude +","+ model.currentLocation.longitude +"&size=640x420&maptype=satellite&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE")
                 //map overlay
-                this.model.set("layerUrl", "https://maps.aerisapi.com/dFkLZrFU77uiTtnLAkl3f_131s9Xmu7KIr7L3xve0zEk0wnVJSn4cgwBYkBZUp/"+this.model.attributes.layer+"/640x420/"+ this.model.currentLocation.latitude +","+ this.model.currentLocation.longitude +","+ this.model.attributes.zoom+"/current.png")
+                if (model.attributes.layer != "none"){
+                    model.set("layerUrl", "https://maps.aerisapi.com/dFkLZrFU77uiTtnLAkl3f_131s9Xmu7KIr7L3xve0zEk0wnVJSn4cgwBYkBZUp/"+model.attributes.layer+"/640x420/"+ model.currentLocation.latitude +","+ model.currentLocation.longitude +","+ model.attributes.zoom+"/current.png")
+                } else {
+                    model.set("layerUrl", "")
+                }
             },
 
             render: function(){
