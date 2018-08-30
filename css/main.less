@@ -93,12 +93,49 @@ body {
             margin: auto;
             border-right: 2px solid #888;
             input{
+                margin: 4px;
                 padding-left: 4px
             }
             input:disabled {
                 color: black;
                 background-color: white;
             }
+            #location-address{
+                width: 100%;
+            }
+            #location-city{
+                width: 55%;
+            }
+            #location-state{
+                padding:2px;
+                width: 15%;
+            }
+            #location-zipCode{
+                width: 18%;
+            }
+            button {
+                display: inline-block;
+                padding: 12px 16px;
+                font-size: 18px;
+                margin: 4px;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                outline: none;
+                color: #fff;
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 10px;
+                box-shadow: 0 2px #999; 
+            }
+            button:hover {background-color: #3e8e41}
+
+            button:active {
+            background-color: #3e8e41;
+            box-shadow: none; 
+            transform: translateY(2px);
+            }
+
         }
         #location-map {
             img {

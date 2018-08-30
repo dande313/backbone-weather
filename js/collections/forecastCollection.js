@@ -55,7 +55,6 @@ define([
 
             //plug everything into new model array
             let condensedDayArray = dayArrays.map(x => condenseDayArr(x))
-            console.log(condensedDayArray)
             return condensedDayArray;
         }
     });
