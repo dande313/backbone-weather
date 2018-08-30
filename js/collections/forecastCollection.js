@@ -37,7 +37,7 @@ define([
             findMaxTemp = function(dayArr){
                 let maxTemp;
                 for (i = 0; i < dayArr.length; i++){
-                    if (i === 0 || dayArr[i].main.temp_max < maxTemp){
+                    if (i === 0 || dayArr[i].main.temp_max > maxTemp){
                         maxTemp = dayArr[i].main.temp_max;
                     } 
                 }
@@ -48,8 +48,8 @@ define([
                 let minTemp = findMinTemp(dayArr)
                 let maxTemp = findMaxTemp(dayArr)
                 dayData = dayArr.filter(x => x.dt_txt.substr(11,18) === "12:00:00")
-                dayData[0].maxTemp = maxTemp;
-                dayData[0].minTemp = minTemp;
+                dayData[0].maxTemp = maxTemp.toFixed(1);
+                dayData[0].minTemp = minTemp.toFixed(1);
                 return dayData[0];
             }
 
