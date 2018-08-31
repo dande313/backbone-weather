@@ -47,7 +47,28 @@ define([
                     currentLocation.zipCode +
                     "&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE",
                     success:function(result){ 
+                        console.log(result);
                         let coordinates = result.results[0].geometry.location
+                        let address = result.results[0].formatted_address.split(",")
+                        
+                        //get rid of address country
+                        address.pop()
+                        
+                        //sometimes, the street address is empty. Returns shorter formatted address.throw in an empty value.
+                        if (address.length < 3){
+                            address.unshift("")
+                            //stick the space back on the front of the city
+                            address[1] = " " + address[1]
+                        }
+                        console.log(address);
+                        let stateZip = address[2].split(" ")
+
+                        positionAddress = address[0];
+                        //because it sticks a space in front of the city
+                        positionCity = address[1].substring(1);
+                        positionState = stateZip[1];
+                        positionZip = stateZip[2];
+
                         currentLocation.latitude = coordinates.lat
                         currentLocation.longitude = coordinates.lng
                         currentLocation.mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center="+ currentLocation.latitude +","+ currentLocation.longitude +"&zoom=14&size=380x380&markers=color:blue%7C"+ currentLocation.latitude +","+ currentLocation.longitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
@@ -59,6 +80,11 @@ define([
                         } else {
                             alert("bad address")
                         }
+                        //API will return closest match it could find. We want to show the closest match on the form
+                        $("#location-address").val(positionAddress)
+                        $("#location-city").val(positionCity)
+                        $("#location-state").find('option[value='+positionState +']').attr('selected', true)
+                        $("#location-zipCode").val(positionZip)
                     }
 
                 })

@@ -56,6 +56,12 @@ define([
                                 "mapUrl": "https://maps.googleapis.com/maps/api/staticmap?center="+ positionLatitude +","+ positionLongitude +"&zoom=14&size=380x380&markers=color:blue%7C"+ positionLatitude +","+ positionLongitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
                             });
 
+                            //API will return closest match it could find. We want to show the closest match on the form
+                            console.log($("#location-address"))
+                            $("#location-address").val(positionAddress)
+                            $("#location-address").val(positionAddress)
+                            $("#location-address").val(positionAddress)
+                            $("#location-state").find('option[value='+positionState +']').attr('selected', true)
                         }
                     }) 
                     return true;    

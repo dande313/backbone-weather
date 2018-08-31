@@ -29,11 +29,10 @@ define([
             },
 
             determineWindType: function(windSpeed){
-
+                
             },
 
             parse: function(data){
-                console.log(data)
                 var weatherData = {
                     temp: data.main.temp,
                     humidity: data.main.humidity,
@@ -43,7 +42,6 @@ define([
                     weatherType: this.titleCase(data.weather[0].description),
                     weatherIcon: data.weather[0].icon
                 }
-                console.log(this.determineWindDirection(data.wind.deg))
                 return weatherData
             }
 
