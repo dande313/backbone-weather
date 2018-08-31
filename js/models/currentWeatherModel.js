@@ -21,15 +21,29 @@ define([
                 return str.join(' ');
             },
 
+
+            determineWindDirection: function(windDeg){
+                let num= parseInt((windDeg/22.5)+.5)
+                let dirArr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+                return dirArr[(num % 16)]
+            },
+
+            determineWindType: function(windSpeed){
+
+            },
+
             parse: function(data){
+                console.log(data)
                 var weatherData = {
                     temp: data.main.temp,
                     humidity: data.main.humidity,
                     pressure: data.main.pressure,
                     visibility: data.visibility,
+                    wind: {speed: data.wind.speed, direction: this.determineWindDirection(data.wind.deg)}, 
                     weatherType: this.titleCase(data.weather[0].description),
                     weatherIcon: data.weather[0].icon
                 }
+                console.log(this.determineWindDirection(data.wind.deg))
                 return weatherData
             }
 

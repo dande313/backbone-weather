@@ -87,8 +87,7 @@ body {
             text-align: left;
             width:40%;
             padding:50px;
-            padding-top: 80px;
-            padding-bottom: 100px;
+            
             float: left;
             margin: auto;
             border-right: 2px solid #888;
@@ -111,30 +110,36 @@ body {
                 width: 15%;
             }
             #location-zipCode{
-                width: 18%;
+                width: 20%;
             }
-            button {
-                display: inline-block;
-                padding: 12px 16px;
-                font-size: 18px;
-                margin: 4px;
-                cursor: pointer;
-                text-align: center;
-                text-decoration: none;
-                outline: none;
-                color: #fff;
-                background-color: #4CAF50;
-                border: none;
-                border-radius: 10px;
-                box-shadow: 0 2px #999; 
-            }
-            button:hover {background-color: #3e8e41}
 
-            button:active {
-            background-color: #3e8e41;
-            box-shadow: none; 
-            transform: translateY(2px);
+            #location-button-box{
+                width: 100%;
+                margin-top: 40px;
+                button {
+                    display: inline-block;
+                    padding: 12px 16px;
+                    font-size: 18px;
+                    margin: 4px;
+                    cursor: pointer;
+                    text-align: center;
+                    text-decoration: none;
+                    outline: none;
+                    color: #fff;
+                    background-color: #0c99d1;
+                    border: none;
+                    border-radius: 10px;
+                    box-shadow: 0 2px #999; 
+                }
+                button:hover {background-color: #0791c7}
+    
+                button:active {
+                background-color: #0989bb;
+                box-shadow: none; 
+                transform: translateY(2px);
+                }
             }
+
 
         }
         #location-map {
@@ -142,6 +147,7 @@ body {
                 position: absolute;
                 clip: rect(0px,360px,360px,0px);
                 margin-left: -170px;
+                padding-top: 25px;
             }
         }
     }
