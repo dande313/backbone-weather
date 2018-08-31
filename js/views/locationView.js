@@ -69,17 +69,21 @@ define([
                         positionState = stateZip[1];
                         positionZip = stateZip[2];
 
-                        currentLocation.latitude = coordinates.lat
-                        currentLocation.longitude = coordinates.lng
+                        currentLocation.latitude = coordinates.lat;
+                        currentLocation.longitude = coordinates.lng;
+                        currentLocation.city = positionCity;
+                        currentLocation.state = positionState;
                         currentLocation.mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center="+ currentLocation.latitude +","+ currentLocation.longitude +"&zoom=14&size=380x380&markers=color:blue%7C"+ currentLocation.latitude +","+ currentLocation.longitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
                         let latitude = parseFloat(currentLocation.latitude);
                         let longitude = parseFloat(currentLocation.longitude);
                         if (latitude < 90 && latitude > -90 && longitude < 180 && longitude > -180){
                             oldLocation.set(currentLocation);
+                            console.log(oldLocation)
                             locationView.render();  
                         } else {
                             alert("bad address")
                         }
+                        console.log(positionState)
                         //API will return closest match it could find. We want to show the closest match on the form
                         $("#location-address").val(positionAddress)
                         $("#location-city").val(positionCity)
