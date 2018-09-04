@@ -1,6 +1,6 @@
 define([
     'underscore',
-    'backbone', 'backboneLocalstorage'], function(_, Backbone, LocalStorage){
+    'backbone'], function(_, Backbone){
 
         //attributes
         /* 
