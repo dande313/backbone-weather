@@ -1,4 +1,4 @@
-define([
+define('MapModel',[
     'jquery',
     'underscore',
     'backbone'], function($,_, Backbone){

@@ -3,23 +3,23 @@ define([
     'underscore',
     'backbone',
     //location
-    'models/locationModel',
-    'locationView',
+    'LocationModel',
+    'LocationView',
 
     //current weather
-    'currentWeatherModel',
-    'currentWeatherView',
+    'CurrentWeatherModel',
+    'CurrentWeatherView',
 
     //forecast
-    'forecastView',
-    'forecastCollection',
+    'ForecastView',
+    'ForecastCollection',
 
     //map
-    'mapModel',
-    'mapView',
+    'MapModel',
+    'MapView',
 
     //Nav-bar
-    'navView'
+    'NavView'
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastCollection, MapModel, MapView, NavView){
 
         var currentLocation = new LocationModel({

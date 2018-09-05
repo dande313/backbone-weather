@@ -10,7 +10,8 @@ module.exports = {
         'build/js/lib/tpl.js':                      ['src/js/lib/tpl.js'],
         'build/js/lib/modernizr-2.6.2.min.js':      ['src/js/lib/modernizr-2.6.2.min.js'],
         'build/js/lib/less-min.js':                 ['src/js/lib/less-min.js'],
-        'build/js/main.js':                         ['src/js/main.js'],
+        'build/js/main-dev.js':                     ['src/js/main-dev.js'],
+        'build/js/app.js':                          ['src/js/app.js'],
 
         //images
         'build/img/legends/legend-fwinds.svg':      ['build/img/legends/legend-fwinds.svg'], 
@@ -34,7 +35,7 @@ module.exports = {
     },
     build_js_master: {
         files: {
-          'build/js/app.js': ['src/js/app.js', 'src/js/views/*.js', 'src/js/models/*.js', 'src/js/collections/*.js']  
+          'build/js/scripts.js': ['src/js/views/*.js', 'src/js/models/*.js', 'src/js/collections/*.js']  
         }
     }
 

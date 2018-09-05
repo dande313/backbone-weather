@@ -10,31 +10,31 @@ requirejs.config({
     tpl: 'lib/tpl',
 
     Router: 'router',
-    app:'app',
+    App:'app',
 
     //location
-    'locationModel': 'models/locationModel',
-    'locationView': 'views/locationView',
+    'LocationModel': 'models/locationModel',
+    'LocationView': 'views/locationView',
 
     //current weather
-    'currentWeatherModel': 'models/currentWeatherModel',
-    'currentWeatherView': 'views/currentWeatherView',
+    'CurrentWeatherModel': 'models/currentWeatherModel',
+    'CurrentWeatherView': 'views/currentWeatherView',
 
     //forecast
-    'forecastView': 'views/forecastView',
-    'forecastDayView': 'views/forecastDayView',
-    'forecastDayModel': 'models/forecastDayModel',
-    'forecastCollection': 'collections/forecastCollection',
+    'ForecastView': 'views/forecastView',
+    'ForecastDayView': 'views/forecastDayView',
+    'ForecastDayModel': 'models/forecastDayModel',
+    'ForecastCollection': 'collections/forecastCollection',
 
     //map
-    'mapModel': 'models/mapModel',
-    'mapView': 'views/mapView',
+    'MapModel': 'models/mapModel',
+    'MapView': 'views/mapView',
 
     //Nav-bar
-    'navView': 'views/navView'
+    'NavView': 'views/navView'
   }
 });
 
-define(['app'], function(App){
+define(['App'], function(App){
   App.initialize();
 })

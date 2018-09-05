@@ -1,4 +1,4 @@
-define([
+define('ForecastDayModel',[
 	'underscore',
 	'backbone'
 ], function (_, Backbone) {

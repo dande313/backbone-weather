@@ -1,4 +1,4 @@
-define([
+define('CurrentWeatherModel',[
     'jquery',
     'underscore',
     'backbone'], function($,_, Backbone){
