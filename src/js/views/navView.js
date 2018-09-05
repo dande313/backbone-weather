@@ -1,4 +1,4 @@
-define([
+define('NavView',[
     'jquery',
     'underscore',
     'backbone'

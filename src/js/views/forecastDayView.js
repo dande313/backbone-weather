@@ -1,4 +1,4 @@
-define([
+define('ForecastDayView',[
     'jquery',
     'underscore',
     'backbone',

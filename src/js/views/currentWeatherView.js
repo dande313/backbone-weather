@@ -1,4 +1,4 @@
-define([
+define('CurrentWeatherView',[
     'jquery',
     'underscore',
     'backbone',

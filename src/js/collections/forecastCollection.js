@@ -1,7 +1,7 @@
-define([
+define('ForecastCollection',[
 	'underscore',
 	'backbone',
-	'models/forecastDayModel'
+	'ForecastDayModel'
 ], function (_, Backbone, ForecastDay) {
 
 	var ForecastCollection = Backbone.Collection.extend({

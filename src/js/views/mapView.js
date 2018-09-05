@@ -1,4 +1,4 @@
-define([
+define('MapView',[
     'jquery',
     'underscore',
     'backbone',

@@ -1,9 +1,9 @@
-define([
+define('ForecastView',[
     'jquery',
     'underscore',
     'backbone',
     'mustache',
-    'views/forecastDayView',
+    'ForecastDayView',
     'tpl!views/templates/forecast_view.html'
     ],
     function(

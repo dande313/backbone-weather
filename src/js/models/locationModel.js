@@ -1,4 +1,4 @@
-define([
+define('LocationModel',[
     'underscore',
     'backbone'], function(_, Backbone){
 

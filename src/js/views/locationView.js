@@ -1,10 +1,10 @@
-define([
+define('LocationView',[
     'jquery',
     'underscore',
     'backbone',
     'mustache',
     'tpl!views/templates/location_view.html',
-    'models/locationModel'
+    'LocationModel'
     ],
     function(
         $, _, Backbone, Mustache, locationViewTemplate, Location
@@ -22,7 +22,8 @@ define([
             },
 
             initialize: function(options){
-                if(!this.model.get("latitude") || !this.model.get("longitude")){
+                console.log(this)
+                if(!this.model || !this.model.get("latitude") || !this.model.get("longitude")){
                     this.model.fetchMyLocation();
                 }
                 this.model.on("change", this.render, this)

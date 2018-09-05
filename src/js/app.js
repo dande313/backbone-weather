@@ -22,8 +22,7 @@ define([
     'NavView'
     ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastCollection, MapModel, MapView, NavView){
 
-        var currentLocation = new LocationModel({
-        });
+        var currentLocation = new LocationModel({})
 
         var initialize = function(){
             Backbone.history.start();
