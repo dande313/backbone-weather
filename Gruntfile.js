@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         options: {
           banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
         },
-        compress: {
+      compress: {
           src: 'src/**/*.js',
           dest: 'build/<%= pkg.name %>.min.js'
         }

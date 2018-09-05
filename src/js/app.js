@@ -4,25 +4,23 @@ define([
     'backbone',
     //location
     'models/locationModel',
-    'views/locationView',
+    'locationView',
 
     //current weather
-    'models/currentWeatherModel',
-    'views/currentWeatherView',
+    'currentWeatherModel',
+    'currentWeatherView',
 
     //forecast
-    'views/forecastView',
-    'views/forecastDayView',
-    'models/forecastDayModel',
-    'collections/forecastCollection',
+    'forecastView',
+    'forecastCollection',
 
     //map
-    'models/mapModel',
-    'views/mapView',
+    'mapModel',
+    'mapView',
 
     //Nav-bar
-    'views/navView'
-    ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastDayView, ForecastDayModel, ForecastCollection, MapModel, MapView, NavView){
+    'navView'
+    ], function($,_, Backbone, LocationModel, LocationView, CurrentWeatherModel, CurrentWeatherView, ForecastView, ForecastCollection, MapModel, MapView, NavView){
 
         var currentLocation = new LocationModel({
         });

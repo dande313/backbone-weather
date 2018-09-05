@@ -11,13 +11,27 @@ requirejs.config({
 
     Router: 'router',
     app:'app',
-    // Collections
 
-    // Models
-    location: 'models/locationModel',
-    // Views
-    LocationView: 'views/locationView',
-    MapView: 'views/mapView'
+    //location
+    'locationModel': 'models/locationModel',
+    'locationView': 'views/locationView',
+
+    //current weather
+    'currentWeatherModel': 'models/currentWeatherModel',
+    'currentWeatherView': 'views/currentWeatherView',
+
+    //forecast
+    'forecastView': 'views/forecastView',
+    'forecastDayView': 'views/forecastDayView',
+    'forecastDayModel': 'models/forecastDayModel',
+    'forecastCollection': 'collections/forecastCollection',
+
+    //map
+    'mapModel': 'models/mapModel',
+    'mapView': 'views/mapView',
+
+    //Nav-bar
+    'navView': 'views/navView'
   }
 });
 

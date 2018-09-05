@@ -9,7 +9,7 @@ define([
         $, _, Backbone, Mustache, ForecastDayViewTemplate
     ){
 
-        var ForecastDayView = Backbone.View.extend({
+        var forecastDayView = Backbone.View.extend({
 
             class: "forcast-day-container",
 
@@ -26,5 +26,5 @@ define([
                 return html
             }
         })
-    return ForecastDayView
+    return forecastDayView
 });

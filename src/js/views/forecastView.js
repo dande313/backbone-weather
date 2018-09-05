@@ -3,15 +3,14 @@ define([
     'underscore',
     'backbone',
     'mustache',
-    'views/forecastView',
     'views/forecastDayView',
     'tpl!views/templates/forecast_view.html'
     ],
     function(
-        $, _, Backbone, Mustache, ForecastView, ForecastDayView, ForecastViewTemplate
+        $, _, Backbone, Mustache, ForecastDayView, ForecastViewTemplate
     ){
 
-        var ForecastView = Backbone.View.extend({
+        var forecastView = Backbone.View.extend({
 
             initialize: function(options){
             },
@@ -28,5 +27,5 @@ define([
                 return this
             }
         })
-    return ForecastView
+    return forecastView
 });

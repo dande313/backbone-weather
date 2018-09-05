@@ -4,7 +4,7 @@ define([
 ], function (_, Backbone) {
 	'use strict';
 
-	var ForecastDay = Backbone.Model.extend({
+	var forecastDayModel = Backbone.Model.extend({
 
 		titleCase:  function (str){
 			str = str.toLowerCase().split(' ');
@@ -58,5 +58,5 @@ define([
 
 	});
 
-	return ForecastDay;
+	return forecastDayModel;
 });
