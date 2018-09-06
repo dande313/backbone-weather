@@ -12,14 +12,16 @@ module.exports = function(grunt) {
           dest: 'build/<%= pkg.name %>.min.js'
         }
       },
-      concat: require('./.grunt/concat')
+      concat: require('./.grunt/concat'),
+      copy: require('./.grunt/copy')
     });
   
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
   
     // Default task(s).
-    grunt.registerTask('default', ['concat:build_files','concat:build_css' , 'concat:build_js_master']);
+    grunt.registerTask('default', ['copy:copy_files','concat:build_css' , 'concat:build_js_master']);
   
   };
