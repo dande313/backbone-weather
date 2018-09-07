@@ -6,8 +6,8 @@
   "repository": "TBD",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-src": "http-server ./src -a localhost -p 2020 -c-1",
-    "start": "http-server ./build -a localhost -p 2020 -c-1"
+    "start-src": "http-server ./src -a localhost -p 2020 -c-1 -o",
+    "start": "http-server ./build -a localhost -p 2020 -c-1 -o"
   },
   "author": "Allen Anderson",
   "license": "ISC",
