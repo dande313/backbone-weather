@@ -36,7 +36,7 @@ npm start-local
 5. Run "npm start" This will start the application's server, pointing it to localhost:2020.
 6. Navigate to localhost:2020 in your browser to run the application. For full functionality, please allow location access. 
 
-If you wish to modify the code, edit the files in the "src" folders. These will be MUCH more readable. Once you are satisfied with the changes, rebuild the application using the "grunt build" command. If you want to run the server using the src code, rather than having to rebuild each tim, you can change the server location by modifying line 9 of the package.json file to read: "start": "http-server ./src -a localhost -p 2020 -c-1"
+If you wish to modify the code, edit the files in the "src" folders. These will be MUCH more readable. Once you are satisfied with the changes, rebuild the application using the "grunt build" command. If you want to run the server using the src code, you can launch a server based off of the src files directly by running "npm start-src". 
 
 
 ###Useage
