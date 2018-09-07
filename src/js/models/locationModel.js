@@ -48,7 +48,6 @@ define('LocationModel',[
                             });
 
                             //API will return closest match it could find. We want to show the closest match on the form
-                            console.log($("#location-address"))
                             $("#location-address").val(positionAddress)
                             $("#location-address").val(positionAddress)
                             $("#location-address").val(positionAddress)

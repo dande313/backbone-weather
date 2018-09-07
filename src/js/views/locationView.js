@@ -22,7 +22,6 @@ define('LocationView',[
             },
 
             initialize: function(options){
-                console.log(this)
                 if(!this.model || !this.model.get("latitude") || !this.model.get("longitude")){
                     this.model.fetchMyLocation();
                 }
@@ -48,7 +47,6 @@ define('LocationView',[
                     currentLocation.zipCode +
                     "&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE",
                     success:function(result){ 
-                        console.log(result);
                         var coordinates = result.results[0].geometry.location
                         var address = result.results[0].formatted_address.split(",")
                         
@@ -61,7 +59,6 @@ define('LocationView',[
                             //stick the space back on the front of the city
                             address[1] = " " + address[1]
                         }
-                        console.log(address);
                         var stateZip = address[2].split(" ")
 
                         positionAddress = address[0];
@@ -79,12 +76,10 @@ define('LocationView',[
                         var longitude = parseFloat(currentLocation.longitude);
                         if (latitude < 90 && latitude > -90 && longitude < 180 && longitude > -180){
                             oldLocation.set(currentLocation);
-                            console.log(oldLocation)
                             locationView.render();  
                         } else {
                             alert("bad address")
                         }
-                        console.log(positionState)
                         //API will return closest match it could find. We want to show the closest match on the form
                         $("#location-address").val(positionAddress)
                         $("#location-city").val(positionCity)
