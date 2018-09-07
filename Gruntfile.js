@@ -21,6 +21,6 @@ module.exports = function(grunt) {
 
 
     // Default task(s).
-    grunt.registerTask('default', ['copy:copy_files', 'replace:fix_html','concat:build_css' , 'concat:build_js_master', 'babel:babelify_js_master', 'uglify:uglify_js_master', 'clean:clean_tmp']);
+    grunt.registerTask('build', ['copy:copy_files', 'replace:fix_html','concat:build_css' , 'concat:build_js_master', 'babel:babelify_js_master', 'uglify:uglify_js_master', 'clean:clean_tmp']);
   
   };

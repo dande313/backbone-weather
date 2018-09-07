@@ -6,7 +6,8 @@
   "repository": "TBD",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "index.html"
+    "start": "index.html",
+    "start-local": "http-server ./build -a localhost -p 2020 -c-1"
   },
   "author": "Allen Anderson",
   "license": "ISC",
@@ -17,14 +18,8 @@
     "grunt-babel": "^7.0.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-nodeunit": "~0.4.1",
-    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "~0.5.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-line-remover": "0.0.2",
-    "grunt-processhtml": "^0.4.1",
     "grunt-text-replace": "^0.4.0"
   },
   "dependencies": {

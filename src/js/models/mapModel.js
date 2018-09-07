@@ -10,7 +10,7 @@ define('MapModel',[
             //layerUrl
 
             defaults: {
-                layer: "satellite-visible",
+                layer: "radar",
                 zoom: 6
             },
             initialize: function(options){
