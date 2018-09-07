@@ -8,11 +8,11 @@ define('LocationModel',[
             },
 
             fetchMyLocation: function(){
-                let currentLocation = this;
+                var currentLocation = this;
                 navigator.geolocation.getCurrentPosition(function(position){
 
-                    let positionLatitude = position.coords.latitude;
-                    let positionLongitude = position.coords.longitude;
+                    var positionLatitude = position.coords.latitude;
+                    var positionLongitude = position.coords.longitude;
                     var positionAddress;
                     var positionCity;
                     var positionState;
@@ -23,9 +23,9 @@ define('LocationModel',[
                         positionLatitude + "," +
                         positionLongitude + "&key=AIzaSyCCFahGgq675eIzapBVXCsexSorrgFa18k",
                         success:function(result){
-                            let address = result.results[0].formatted_address.split(",")
-                            let stateZip = address[2].split(" ")
-                            let coordinates = result.results[0].geometry.location
+                            var address = result.results[0].formatted_address.split(",")
+                            var stateZip = address[2].split(" ")
+                            var coordinates = result.results[0].geometry.location
 
                             positionAddress = address[0];
                             //because it sticks a space in front of the city

@@ -23,8 +23,8 @@ define('CurrentWeatherModel',[
 
 
             determineWindDirection: function(windDeg){
-                let num= parseInt((windDeg/22.5)+.5)
-                let dirArr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+                var num= parseInt((windDeg/22.5)+.5)
+                var dirArr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
                 return dirArr[(num % 16)]
             },
 

@@ -17,7 +17,7 @@ define('ForecastDayModel',[
 		parse: function(data){
 			var date = data.dt_txt.substr(5,5) + "-" + data.dt_txt.substr(0,4)
 			var dayOfTheWeek = function(){
-				let jsDate = new Date(date)
+				var jsDate = new Date(date)
 				var weekDay;
 				switch (jsDate.getDay()){
 					case 0:

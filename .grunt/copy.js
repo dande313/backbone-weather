@@ -5,7 +5,6 @@ module.exports = {
             {expand: true, flatten: true, src: ['src/js/lib/*'], dest: 'build/js/lib/'},
       
             // App & Main & Index
-            {expand: true, flatten: true, src: ['src/index.html'], dest: 'build/'},
             {expand: true, flatten: true, src: ['src/js/app.js'], dest: 'build/js/'},
             {expand: true, flatten: true, src: ['src/js/main-prod.js'], dest: 'build/js/', 
                 //function to rename file

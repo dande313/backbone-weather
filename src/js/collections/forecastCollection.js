@@ -25,7 +25,7 @@ define('ForecastCollection',[
             }
 
             findMinTemp = function(dayArr){
-                let minTemp;
+                var minTemp;
                 for (i = 0; i < dayArr.length; i++){
                     if (i === 0 || dayArr[i].main.temp_min < minTemp){
                         minTemp = dayArr[i].main.temp_min;
@@ -35,7 +35,7 @@ define('ForecastCollection',[
             }
 
             findMaxTemp = function(dayArr){
-                let maxTemp;
+                var maxTemp;
                 for (i = 0; i < dayArr.length; i++){
                     if (i === 0 || dayArr[i].main.temp_max > maxTemp){
                         maxTemp = dayArr[i].main.temp_max;
@@ -45,16 +45,16 @@ define('ForecastCollection',[
             }
 
             condenseDayArr = function(dayArr){
-                let minTemp = findMinTemp(dayArr)
-                let maxTemp = findMaxTemp(dayArr)
-                dayData = dayArr.filter(x => x.dt_txt.substr(11,18) === "12:00:00")
+                var minTemp = findMinTemp(dayArr)
+                var maxTemp = findMaxTemp(dayArr)
+                dayData = dayArr.filter(function(x){return x.dt_txt.substr(11,18) === "12:00:00"})
                 dayData[0].maxTemp = maxTemp.toFixed(1);
                 dayData[0].minTemp = minTemp.toFixed(1);
                 return dayData[0];
             }
 
             //plug everything into new model array
-            let condensedDayArray = dayArrays.map(x => condenseDayArr(x))
+            var condensedDayArray = dayArrays.map(function(x) {return condenseDayArr(x)})
             return condensedDayArray;
         }
     });

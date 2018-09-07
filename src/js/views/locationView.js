@@ -30,15 +30,15 @@ define('LocationView',[
             },
 
             updateLocation: function(){
-                let currentLocation = {
+                var currentLocation = {
                     streetAddress: $("#location-address").val(),
                     city: $("#location-city").val(),
                     state: $("#location-state").val(),
                     zipCode: $("#location-zipCode").val()
                 }
 
-                let oldLocation = this.model;
-                let locationView = this
+                var oldLocation = this.model;
+                var locationView = this
 
                 $.ajax({
                     url:"https://maps.googleapis.com/maps/api/geocode/json?address=" +
@@ -49,8 +49,8 @@ define('LocationView',[
                     "&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE",
                     success:function(result){ 
                         console.log(result);
-                        let coordinates = result.results[0].geometry.location
-                        let address = result.results[0].formatted_address.split(",")
+                        var coordinates = result.results[0].geometry.location
+                        var address = result.results[0].formatted_address.split(",")
                         
                         //get rid of address country
                         address.pop()
@@ -62,7 +62,7 @@ define('LocationView',[
                             address[1] = " " + address[1]
                         }
                         console.log(address);
-                        let stateZip = address[2].split(" ")
+                        var stateZip = address[2].split(" ")
 
                         positionAddress = address[0];
                         //because it sticks a space in front of the city
@@ -75,8 +75,8 @@ define('LocationView',[
                         currentLocation.city = positionCity;
                         currentLocation.state = positionState;
                         currentLocation.mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center="+ currentLocation.latitude +","+ currentLocation.longitude +"&zoom=14&size=380x380&markers=color:blue%7C"+ currentLocation.latitude +","+ currentLocation.longitude +"&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE"
-                        let latitude = parseFloat(currentLocation.latitude);
-                        let longitude = parseFloat(currentLocation.longitude);
+                        var latitude = parseFloat(currentLocation.latitude);
+                        var longitude = parseFloat(currentLocation.longitude);
                         if (latitude < 90 && latitude > -90 && longitude < 180 && longitude > -180){
                             oldLocation.set(currentLocation);
                             console.log(oldLocation)

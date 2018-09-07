@@ -6,7 +6,7 @@ module.exports = {
     },
     build_js_master: {
         files: {
-          'build/js/scripts.js': ['src/js/views/*.js', 'src/js/models/*.js', 'src/js/collections/*.js']  
+          '.tmp/scripts.js': ['src/js/views/*.js', 'src/js/models/*.js', 'src/js/collections/*.js']  
         }
     }
 
