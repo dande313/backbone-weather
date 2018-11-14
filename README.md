@@ -22,7 +22,7 @@ The application uses the following free APIs:
 npm install http-server -g
 npm install
 grunt build
-npm start-local
+npm start
 
 -Navigate to http://localhost:2020 
 
