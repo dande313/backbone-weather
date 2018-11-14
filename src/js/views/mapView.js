@@ -41,7 +41,7 @@ define('MapView',[
                 model.set("mapUrl", "https://maps.googleapis.com/maps/api/staticmap?center="+ model.currentLocation.latitude +","+ model.currentLocation.longitude +"&zoom="+ model.attributes.zoom+"&markers=color:blue%7C"+ model.currentLocation.latitude +","+ model.currentLocation.longitude +"&size=640x420&maptype=satellite&key=AIzaSyD00WgZE12rmsdIx6CmM5oZNJFw8xbzgCE")
                 //map overlay
                 if (model.attributes.layer != "none"){
-                    model.set("layerUrl", "https://maps.aerisapi.com/dFkLZrFU77uiTtnLAkl3f_131s9Xmu7KIr7L3xve0zEk0wnVJSn4cgwBYkBZUp/"+model.attributes.layer+"/640x420/"+ model.currentLocation.latitude +","+ model.currentLocation.longitude +","+ model.attributes.zoom+"/current.png")
+                    model.set("layerUrl", "https://maps.aerisapi.com/JAi10dHPEzQeN65sqCpgN_BzK677XZpQ0RiGB1dm6VhFBdu1m8vlLXSuM59PC3/"+model.attributes.layer+"/640x420/"+ model.currentLocation.latitude +","+ model.currentLocation.longitude +","+ model.attributes.zoom+"/current.png")
                 } else {
                     model.set("layerUrl", "")
                 }
